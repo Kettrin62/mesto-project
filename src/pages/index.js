@@ -1,4 +1,4 @@
-import "./index.css"; // добавьте импорт главного файла стилей
+import './index.css'; // добавьте импорт главного файла стилей
 
 import {
   configValid,
@@ -12,15 +12,15 @@ import {
   infoButton,
   addButton,
   avatarButton,
-} from "../utils/constants.js";
+} from '../utils/constants.js';
 
-import FormValidator from "../components/FormValidator.js";
-import Api from "../components/Api.js";
-import Card from "../components/Card.js";
-import Section from "../components/Section.js";
-import PopupWithImage from "../components/PopupWithImage.js";
-import PopupWithForm from "../components/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
+import FormValidator from '../components/FormValidator.js';
+import Api from '../components/Api.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
 
 let cardDelId;
 
@@ -84,7 +84,7 @@ const section = new Section(
             deleteCardOpenPopup.open();
           },
         },
-        "#card-template"
+        '#card-template'
       );
       const cardElement = card.createCard();
       return cardElement;
@@ -120,22 +120,22 @@ const submitCardPopup = new PopupWithForm({
           submitCardPopup.renderLoading.bind(submitCardPopup),
           400,
           false,
-          "Создать"
+          'Создать'
         );
       });
   },
 });
 
 // добавляем обработчик клика по кнопке "добавить"
-addButton.addEventListener("click", () => {
+addButton.addEventListener('click', () => {
   submitCardPopup.open();
 });
 
 // Экземпляр класса UserInfo
 const userInfo = new UserInfo({
-  nameElement: ".info__name",
-  jobElement: ".info__description",
-  avatarElement: ".profile__avatar",
+  nameElement: '.info__name',
+  jobElement: '.info__description',
+  avatarElement: '.profile__avatar',
   nameSelector: '[name="firstname"]',
   aboutSelector: '[name="description"]',
 
@@ -181,7 +181,7 @@ const submitEditPopup = new PopupWithForm({
 });
 
 // добавляем обработчик клика по кнопке "редактировать"
-infoButton.addEventListener("click", () => {
+infoButton.addEventListener('click', () => {
   submitEditPopup.open();
   userInfo.getUserInfo();
 });
@@ -216,7 +216,7 @@ const submitAvatarPopup = new PopupWithForm({
 });
 
 // добавляем обработчик клика по кнопке "аватар"
-avatarButton.addEventListener("click", () => {
+avatarButton.addEventListener('click', () => {
   submitAvatarPopup.open();
 });
 

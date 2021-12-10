@@ -14,7 +14,6 @@ export default class Card {
     // api функционал, присваиваем в index.js
     this._apiLikeAdd = apiLikeAdd;
     this._apiLikeDel = apiLikeDel;
-
     this._handleDeleteClic = handleDeleteClic;
   }
 
@@ -22,7 +21,7 @@ export default class Card {
   _getElement() {
     const cardElement = document
       .querySelector(this._selector)
-      .content.querySelector(".cards__item")
+      .content.querySelector('.cards__item')
       .cloneNode(true);
 
     return cardElement;
@@ -30,13 +29,13 @@ export default class Card {
 
   // Метод лайкания
   _likeButtonHandler() {
-    if (!this._likeButton.classList.contains("element__icon_active")) {
+    if (!this._likeButton.classList.contains('element__icon_active')) {
       this._apiLikeAdd(this._data._id)
         .then((card) => {
           // Выставляем лайки
           this._likesNumberElement.textContent = card.likes.length;
           // Добавляем активную иконку
-          this._likeButton.classList.add("element__icon_active");
+          this._likeButton.classList.add('element__icon_active');
         })
         .catch((err) => {
           console.log(err);
@@ -47,7 +46,7 @@ export default class Card {
           // Выставляем лайки
           this._likesNumberElement.textContent = card.likes.length;
           // Убираем активную иконку
-          this._likeButton.classList.remove("element__icon_active");
+          this._likeButton.classList.remove('element__icon_active');
         })
         .catch((err) => {
           console.log(err);
@@ -58,15 +57,15 @@ export default class Card {
   // Метод навешивания слушателей
   _setEventListener() {
     // Вешаем слушатель на кнопку удаления
-    this._deleteButton.addEventListener("click", () => {
+    this._deleteButton.addEventListener('click', () => {
       this._handleDeleteClic(this._data._id, this._element);
     });
 
     // Вешаем слушатель на кнопку лайка
-    this._likeButton.addEventListener("click", () => {
+    this._likeButton.addEventListener('click', () => {
       this._likeButtonHandler();
     });
-    this._imageElement.addEventListener("click", () => {
+    this._imageElement.addEventListener('click', () => {
       this._handleCardClick(this._data);
     });
   }
@@ -77,18 +76,18 @@ export default class Card {
     this._element = this._getElement();
 
     // Находим кнопку лайка
-    this._likeButton = this._element.querySelector(".element__icon");
+    this._likeButton = this._element.querySelector('.element__icon');
     // Находим кнопку удаления карточки
-    this._deleteButton = this._element.querySelector(".element__button-delete");
+    this._deleteButton = this._element.querySelector('.element__button-delete');
     // Находим элемент отвечающий за лайки
-    this._likesNumberElement = this._element.querySelector(".element__likes");
+    this._likesNumberElement = this._element.querySelector('.element__likes');
     // Находим элемент картинки
-    this._imageElement = this._element.querySelector(".element__image");
+    this._imageElement = this._element.querySelector('.element__image');
     // добавляем элементу картинку и к ней атрибут alt
     this._imageElement.src = this._data.link;
     this._imageElement.alt = this._data.name;
     // добавляем название
-    this._element.querySelector(".element__caption-title").textContent =
+    this._element.querySelector('.element__caption-title').textContent =
       this._data.name;
     // добавляем количество лайков
     this._likesNumberElement.textContent = this._data.likes.length;
@@ -96,13 +95,13 @@ export default class Card {
     // добавляем кнопку "лайк"
     this._data.likes.forEach((likeElement) => {
       if (likeElement._id === this._userId) {
-        this._likeButton.classList.add("element__icon_active");
+        this._likeButton.classList.add('element__icon_active');
       }
     });
 
     // добавляем кнопку удаления карточки
     if (this._userId === this._data.owner._id) {
-      this._deleteButton.classList.add("element__button-delete_active");
+      this._deleteButton.classList.add('element__button-delete_active');
     }
 
     // Вешаем слушателей

@@ -4,7 +4,7 @@ export default class FormValidator {
     this._element = element;
   }
 
-  // Проверяет импуты на валидность
+  // Проверяет инпуты на валидность
   _hasInvalidInput() {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
@@ -57,9 +57,9 @@ export default class FormValidator {
     this._errorElement.classList.add(this._data.inputErrorClass);
   }
 
-  // Вешает слушатели на форму и импуты
+  // Вешает слушатели на форму и инпуты
   _setEventListeners() {
-    this._element.addEventListener("submit", (evt) => {
+    this._element.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
     this._inputList = Array.from(
@@ -79,7 +79,7 @@ export default class FormValidator {
     });
 
     this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
+      inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
         this._toggleButtonState();
       });

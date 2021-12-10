@@ -7,8 +7,7 @@ export default class UserInfo {
     aboutSelector,
     getApi,
     setProfileApi,
-    setAvatarApi,
-    userId
+    setAvatarApi
   }) {
     this._nameElement = document.querySelector(nameElement);
     this._jobElement = document.querySelector(jobElement);
