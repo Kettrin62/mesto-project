@@ -22,4 +22,4 @@
 
 **Приятного пользования!**
 
-[Cсылка на проект *Mesto*](https://kettrin62.github.io/mesto-project/)
+Cсылка на проект *Mesto*: https://kettrin62.github.io/mesto-project/
